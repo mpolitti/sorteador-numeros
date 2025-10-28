@@ -5,12 +5,24 @@ function sortear(){
     let ate = parseInt(document.getElementById('ate').value);
 
     let sorteados = [];
+    let numero;
 
     for (let i = 0; i < quantidade; i++) {
-        sorteados.push(obterNumeroAleatorio(de,ate));
+        
+        //obtém número aleatório
+        numero = obterNumeroAleatorio(de,ate);
+
+        //obtém próximo número aleatório enquanto esse já tiver sido sorteado
+        while(sorteados.includes(numero)){
+            numero = obterNumeroAleatorio(de,ate);
+        }
+
+        //adiciona o número aleatório no array
+        sorteados.push(numero);
     }
 
-    console.log(sorteados);
+    let resultado = document.getElementById('resultado');
+    resultado.innerHTML = `<label class="texto__paragrafo">Números sorteados:  ${sorteados}</label>`;
 
 }
 

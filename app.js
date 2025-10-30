@@ -4,6 +4,11 @@ function sortear(){
     let de = parseInt(document.getElementById('de').value);
     let ate = parseInt(document.getElementById('ate').value);
 
+    if (de >= ate) {
+        alert('Informe um valor "De" inferior ao "Até"!');
+        return;
+    }
+
     if (quantidade > ate - de + 1) {
         alert('Quantidade de números a serem sorteados é inválida!');
         return;
